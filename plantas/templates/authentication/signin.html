@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{messages.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong>{{message}}
+    <button type="button" class="close" data-dismiss = "alert" aria-lable = "Close"></button>
+    <span aria-hidden="true">&times;</span>
+    </div>
+    {% endfor %}
+
+    
+    <h2>Sign in</h2>
+    
+    <form action="/signin" method="post">
+        {% csrf_token %}
+        <label for="">User name</label>
+        <input type="text" id="username" name="username" placeholder="create Username(ONLY LETTERS AND NUMBERS)" required>
+        <br>
+        <label for="">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Enter the password" required>
+        <br>
+        
+
+        <button type="submit">Sign in</button>
+    </form>
+
+</body>
+</html>
